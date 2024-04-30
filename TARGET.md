@@ -13,3 +13,7 @@
 
     4. Share link of room to read data
         
+# Technology
+    1. Express
+    2. ejs
+    3. Mongoose
