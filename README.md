@@ -1,4 +1,7 @@
 
+# Incognito text sharer 
+    Share text with your friend with out knowing anyone
+    
 # What will be the features of application
     1. Create Room
         a. Room Name

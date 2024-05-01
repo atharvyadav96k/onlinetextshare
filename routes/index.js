@@ -51,12 +51,13 @@ router.post('/createRoom', async function (req, res) {
 
 });
 router.post('/addingNote', async function (req, res) {
-  const { roomName, note } = req.body;
+  const { roomName, name='note',note } = req.body;
   try {
     const findRoom = await roomSchema.findOne({ name: roomName });
     if (findRoom) {
       try {
         const newNote = new noteSchema({
+          name: name,
           note: note
         })
         await newNote.save();
@@ -74,7 +75,6 @@ router.post('/addingNote', async function (req, res) {
   } catch (error) {
     res.status(500).send({ message: `Error: ${error}`, success: false })
   }
-
 })
 function generateRoom() {
   const name = randomstring.generate({
