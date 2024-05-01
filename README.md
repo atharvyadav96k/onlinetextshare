@@ -1,7 +1,20 @@
-# Online Text Sharing platform
-    platform is used to share text with your friend 
-# Create Room
-    You just need to create room for some interval of time and you can share live text with your friends
-# How to create room
-    just click on create room and set its password and time duration of room it must be less than 3hr
-    and share room name and password with your friend and share your text
+
+# What will be the features of application
+    1. Create Room
+        a. Room Name
+        b. Password
+        c. Room interval time , Default : 1hr
+
+    2. Create n number of notes in application
+        a. Note Name
+        b. Write inside note
+
+    3. Enter inside room
+        a. Read Data inside room
+
+    4. Share link of room to read data
+        
+# Technology
+    1. Express
+    2. ejs
+    3. Mongoose   
