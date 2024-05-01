@@ -74,7 +74,6 @@ router.post('/addingNote', async function (req, res) {
   } catch (error) {
     res.status(500).send({ message: `Error: ${error}`, success: false })
   }
-
 })
 function generateRoom() {
   const name = randomstring.generate({
