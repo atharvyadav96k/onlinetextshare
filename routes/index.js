@@ -13,31 +13,39 @@ router.post('/createRoom', async function (req, res) {
   let isUniqueRoom = false;
   let name;
   let timeLimit;
-  if (hr > 5) {
-    res.status(500).send({
-      message: "You can't create room time more than 5hr",
-      success: false
-    });
-  } else {
-    while (!isUniqueRoom) {
-      name = generateRoom();
-      isUniqueRoom = isRoomIsUnique(name);
-    }
-    if (hr) {
-      console.log(hr)
-      timeLimit = addRoomTimeLimit(hr);
+  if (typeof hr == 'number') {
+    if (hr > 5) {
+      res.status(500).send({
+        message: "You can't create room time more than 5hr",
+        success: false
+      });
     } else {
-      console.log("noFound")
-      timeLimit = addRoomTimeLimit();
+      while (!isUniqueRoom) {
+        name = generateRoom();
+        isUniqueRoom = isRoomIsUnique(name);
+      }
+      if (hr) {
+        console.log(hr)
+        timeLimit = addRoomTimeLimit(hr);
+      } else {
+        console.log("noFound")
+        timeLimit = addRoomTimeLimit();
+      }
+      const newRoom = new roomSchema({
+        name: name,
+        password: encryptor.encrypt(password),
+        hr: timeLimit
+      });
+      await newRoom.save();
+      res.send(name);
     }
-    const newRoom = new roomSchema({
-      name: name,
-      password: encryptor.encrypt(password),
-      hr: timeLimit
+  } else {
+    res.status(500).send({ 
+      message: "time Data type is not number", 
+      success: false 
     });
-    await newRoom.save();
-    res.send(name);
   }
+
 
 });
 
