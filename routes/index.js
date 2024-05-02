@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+
 var randomstring = require("randomstring");
 const roomSchema = require('../schema/roomSchema');
 const noteSchema = require('../schema/noteSchema');
@@ -16,7 +17,7 @@ router.post('/createRoom', async function (req, res) {
   let name;
   let timeLimit;
   if (typeof hr == 'number') {
-    if (hr > 5) {
+    if (hr > 5) {   
       res.status(500).send({
         message: "You can't create room time more than 5hr",
         success: false
@@ -51,7 +52,7 @@ router.post('/createRoom', async function (req, res) {
 
 });
 router.post('/addingNote', async function (req, res) {
-  const { roomName, name='note',note } = req.body;
+  const { roomName, name = 'note', note } = req.body;
   try {
     const findRoom = await roomSchema.findOne({ name: roomName });
     if (findRoom) {
@@ -75,7 +76,21 @@ router.post('/addingNote', async function (req, res) {
   } catch (error) {
     res.status(500).send({ message: `Error: ${error}`, success: false })
   }
-})
+});
+router.post('/getIntoRoom', async function (req, res) {
+  const { name } = req.body;
+  try {
+    const data = await roomSchema.findOne({ name: name }).populate('notes');
+    if (data) {
+      res.status(200).send({ data: data, success: true, message: "room data send successfully" })
+    } else {
+      res.status(500).send({ success: false, message: "Please enter valid room, either room is not created or it is expired" });
+    }
+  } catch (error) {
+    res.status(500).send({ success: false, message: `Error : ${error}` });
+    console.log(error.message)
+  }
+});
 function generateRoom() {
   const name = randomstring.generate({
     length: 4,

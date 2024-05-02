@@ -1,4 +1,3 @@
-
 # Incognito text sharer 
     Share text with your friend with out knowing anyone
     
