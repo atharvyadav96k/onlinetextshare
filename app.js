@@ -9,8 +9,6 @@ const http =  require('http')
 var indexRouter = require('./routes/index');
 
 var app = express();
-const server = http.createServer(app);
-const io = socketIo(server);
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -21,15 +19,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-
-
-io.on('connection', (socket)=>{
-  console.log('new user')
-  socket.on('joinRoom', (roomName)=>{
-    socket.join(roomName);
-    console.log(`user connect to room ${roomName}`)
-  })
-})
 
 
 
