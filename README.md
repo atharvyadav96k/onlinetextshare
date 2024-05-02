@@ -10,7 +10,8 @@
     2. Create n number of notes in application
         a. Note Name ✅
         b. Write inside note ✅
-
+        c. Update note ✅
+        
     3. Enter inside room
         a. Read Data inside room
 
