@@ -17,7 +17,7 @@ router.post('/createRoom', async function (req, res) {
   let name;
   let timeLimit;
   if (typeof hr == 'number') {
-    if (hr > 5) {   
+    if (hr > 5) {
       res.status(500).send({
         message: "You can't create room time more than 5hr",
         success: false
@@ -51,27 +51,23 @@ router.post('/createRoom', async function (req, res) {
 
 
 });
-router.post('/addingNote', async function (req, res) {
-  const { roomName, name = 'note', note } = req.body;
+router.post('/addingNote', authentication, async function (req, res) {
+  const { roomName, name = 'note', note, password } = req.body;
   try {
     const findRoom = await roomSchema.findOne({ name: roomName });
-    if (findRoom) {
-      try {
-        const newNote = new noteSchema({
-          name: name,
-          note: note
-        })
-        await newNote.save();
-        findRoom.notes.push(newNote._id);
-        await findRoom.save();
-        console.log(newNote);
-        res.status(200).send({ message: "Note Added Successfully", success: true })
-      } catch (error) {
-        console.log(error)
-        res.status(500).send({ message: `Note not added error: ${error}`, success: false })
-      }
-    } else {
-      res.status(500).send({ message: "Room is not valid", success: false });
+    try {
+      const newNote = new noteSchema({
+        name: name,
+        note: note
+      })
+      await newNote.save();
+      findRoom.notes.push(newNote._id);
+      await findRoom.save();
+      console.log(newNote);
+      res.status(200).send({ message: "Note Added Successfully", success: true })
+    } catch (error) {
+      console.log(error)
+      res.status(500).send({ message: `Note not added error: ${error}`, success: false })
     }
   } catch (error) {
     res.status(500).send({ message: `Error: ${error}`, success: false })
@@ -91,6 +87,9 @@ router.post('/getIntoRoom', async function (req, res) {
     console.log(error.message)
   }
 });
+router.post('/updateNote', authentication,function (req, res) {
+  res.send("updated")
+})
 function generateRoom() {
   const name = randomstring.generate({
     length: 4,
@@ -107,5 +106,20 @@ function addRoomTimeLimit(hr = 2) {
   let t = time.getTime() + (hr * 60 * 60 * 1000);
   // console.log(t," current time", time.getTime())
   return t;
+}
+async function authentication(req, res, next) {
+  const { roomName, password } = req.body;
+  try {
+    const room = await roomSchema.findOne({ name: roomName });
+    if (password == encryptor.decrypt(room.password)) {
+      next();
+    } else {
+      res.status(500).send({ message: 'wrong password or room not found', success: false });
+    }
+  } catch (error) {
+    res.status(500).send({message: `Error: ${error.message}`, success: false})
+  }
+  console.log(roomName, password)
+
 }
 module.exports = router;
