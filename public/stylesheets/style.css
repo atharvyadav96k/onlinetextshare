@@ -124,10 +124,9 @@ header .container {
   border: none;
   border-radius: 9px;
 }
-
 .set-password {
   width: 100%;
-  height:124px;
+  height: 62px;
   background-color: white;
   font-family: "milker";
   font-size: 20px;
@@ -135,8 +134,21 @@ header .container {
   align-items: flex-end;
   border-radius: 9px;
 }
+#send-password-to-server{
+  margin: 0px 10px 10px 0px;
+  width: 52px;
+  height: 42px;
+  font-family: "milker";
+  background-color: #08003A;
+  color: white;
+  border: none;
+  border-radius: 9px;
+}
 .input-password{
   height: 42px;
   margin: 10px;
   flex-grow: 1;
+  border-radius: 9px;
+  padding: 10px;
+  font-size: 20px;
 }
