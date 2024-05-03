@@ -10,23 +10,35 @@
 
 <body>
   <div id="main">
-    <header>
-      <div class="container">
-        <div class="head-l">NOTEHUB</div>
-        <div class="head-r">
-          <div class="span">home</div>
-          <div class="span">about us</div>
-          <div class="span">documentation</div>
-          <div class="span">contact us</div>
+    <div class="filter"></div>
+    <div style="position: absolute;z-index: 99;">
+      <header>
+        <div class="container">
+          <div class="head-l">NOTEHUB</div>
+          <div class="head-r">
+            <div class="span">home</div>
+            <div class="span">about us</div>
+            <div class="span">documentation</div>
+            <div class="span">contact us</div>
+          </div>
+          <svg class="list" xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
+            class="bi bi-list" viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+              d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
+          </svg>
         </div>
-        <svg class="list" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
-          <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
-        </svg>
+      </header>
+      <div class="container">
+        <h1 class="heading-head">Connect, collaborate, and create unforgettable narratives with friends on our platform.</h1>
+        <div  class="create-container">
+          <button id="create-room">create room</button>
+          <div class="set-password">
+            <input type="text" class="input-password">
+          </div>
+        </div>
       </div>
-    </header>
-    <div class="container">
-
     </div>
+
   </div>
 </body>
 
