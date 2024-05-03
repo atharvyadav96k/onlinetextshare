@@ -13,7 +13,7 @@
         c. Update note ✅
         
     3. Enter inside room
-        a. Read Data inside room
+        a. Read Data inside room ✅
 
     4. Share link of room to read data
         
