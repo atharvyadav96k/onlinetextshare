@@ -73,8 +73,8 @@ router.post('/addingNote', authentication, async function (req, res) {
     res.status(500).send({ message: `Error: ${error}`, success: false })
   }
 });
-router.post('/getIntoRoom', async function (req, res) {
-  const { name } = req.body;
+router.post('/getIntoRoom/:name', async function (req, res) {
+  const name  = req.params.name;
   try {
     const data = await roomSchema.findOne({ name: name }).populate('notes');
     if (data) {
