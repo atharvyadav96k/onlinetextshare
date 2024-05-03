@@ -1,8 +1,51 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
 }
-
-a {
-  color: #00B7FF;
+@font-face {
+  font-family: "milker";
+  src: url("../font/Milker.otf")format("opentype");
+}
+.container {
+  width: 1200px;
+  margin: auto;
+}
+header {
+  height: 60px;
+  background-color: #FFEB85;
+}
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  max-width: 1200px;
+}
+.head-l {
+  font-family: "milker";
+  font-size: 32px;
+  color: #DC3545;
+  text-shadow: 1px 1px black;
+  padding: 10px;
+}
+.head-r {
+  display: flex;
+  justify-content: space-between;
+  width: 500px;
+  height: 40px;
+  align-items: center;
+  padding: 17px;
+}
+.list{
+  display: none;
+}
+@media screen and (max-width: 767px) {
+  .head-r {
+    display: none;
+  }
+  .list{
+    display: block;
+  }
 }
