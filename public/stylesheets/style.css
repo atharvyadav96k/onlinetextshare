@@ -1,8 +1,154 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
 }
 
-a {
-  color: #00B7FF;
+@font-face {
+  font-family: "milker";
+  src: url("../font/Milker.otf")format("opentype");
+}
+
+#main {
+  width: 100%;
+  height: 100vh;
+  background-image: url(../images/kelly-sikkema--1_RZL8BGBM-unsplash.jpg);
+  background-size: cover;
+  background-position: top;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 10px;
+}
+
+.heading-head {
+  margin-top: 60px;
+  font-family: "milker";
+  color: white;
+  text-shadow: 1px 1px black;
+  text-align: center;
+  padding: 7px;
+}
+
+header {
+  height: 60px;
+  background-color: #FFEB85;
+  z-index: 99;
+  width: 100vw;
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.head-l {
+  font-family: "milker";
+  font-size: 32px;
+  color: #DC3545;
+  text-shadow: 1px 1px black;
+  padding: 10px;
+}
+
+.head-r {
+  display: flex;
+  justify-content: space-between;
+  width: 500px;
+  height: 40px;
+  align-items: center;
+  padding: 17px;
+  font-family: "milker";
+  color: #08003A;
+  text-shadow: 1px 1px white;
+}
+
+.list {
+  display: none;
+  margin-right: 10px;
+}
+
+@media screen and (max-width: 767px) {
+  .head-r {
+    display: none;
+  }
+
+  .list {
+    display: block;
+  }
+
+  .heading-head {
+    font-size: 20px;
+  }
+}
+
+.filter {
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+}
+.create-container{
+  margin: auto;
+  max-width: 400px;
+  box-sizing: content-box;
+  height: 62px;
+  background-color: #DC3545;
+  color: white;
+  border: none;
+  border-radius: 9px;
+  font-family: "milker";
+  margin-top: 40px;
+  font-size: 20px;
+  z-index: 99;
+  position: relative;
+  border-radius: 9px;
+}
+#create-room {
+  display: block;
+  width: 100%;
+  height: 62px;
+  background-color: #DC3545;
+  color: white;
+  font-size: 20px;
+  z-index: 99;
+  position: absolute;
+  font-family: "milker";
+  border: none;
+  border-radius: 9px;
+}
+.set-password {
+  width: 100%;
+  height: 62px;
+  background-color: white;
+  font-family: "milker";
+  font-size: 20px;
+  display: flex;
+  align-items: flex-end;
+  border-radius: 9px;
+}
+#send-password-to-server{
+  margin: 0px 10px 10px 0px;
+  width: 52px;
+  height: 42px;
+  font-family: "milker";
+  background-color: #08003A;
+  color: white;
+  border: none;
+  border-radius: 9px;
+}
+.input-password{
+  height: 42px;
+  margin: 10px;
+  flex-grow: 1;
+  border-radius: 9px;
+  padding: 10px;
+  font-size: 20px;
 }
