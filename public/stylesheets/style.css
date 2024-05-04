@@ -2,8 +2,15 @@
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
+  overflow-x: hidden;
 }
-
+*::-webkit-scrollbar{
+  width: 0px;
+}
+input:focus{
+  outline: none;
+  font-size: 20px;
+}
 @font-face {
   font-family: "milker";
   src: url("../font/Milker.otf")format("opentype");
@@ -11,7 +18,7 @@
 
 #main {
   width: 100%;
-  height: 100vh;
+  height: 550px;
   background-image: url(../images/kelly-sikkema--1_RZL8BGBM-unsplash.jpg);
   background-size: cover;
   background-position: top;
@@ -38,7 +45,12 @@ header {
   z-index: 99;
   width: 100vw;
 }
-
+header::-webkit-scrollbar{
+  overflow: hidden;
+}
+.head-r{
+  overflow: hidden;
+}
 header .container {
   display: flex;
   justify-content: space-between;
@@ -46,6 +58,7 @@ header .container {
   height: 100%;
   width: 100%;
   max-width: 1200px;
+  overflow: hidden;
 }
 
 .head-l {
@@ -89,18 +102,20 @@ header .container {
 
 .filter {
   width: 100%;
-  height: 100vh;
+  height: 550px;
   background-color: rgba(0, 0, 0, 0.5);
   position: absolute;
   pointer-events: none;
   z-index: 0;
 }
-.create-container{
+
+.create-container,
+.room-enter-container {
   margin: auto;
+  width: 100%;
   max-width: 400px;
   box-sizing: content-box;
   height: 62px;
-  background-color: #DC3545;
   color: white;
   border: none;
   border-radius: 9px;
@@ -111,44 +126,127 @@ header .container {
   position: relative;
   border-radius: 9px;
 }
-#create-room {
-  display: block;
-  width: 100%;
+
+.create-container {
+  background-color: white;
+  display: flex;
   height: 62px;
-  background-color: #DC3545;
-  color: white;
-  font-size: 20px;
-  z-index: 99;
+  border-radius: 9px;
+}
+
+.room-enter-container {
+  background-color: white;
+  display: flex;
+}
+
+#create-room {
   position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 9px;
+  background-color: #DC3545;
   font-family: "milker";
   border: none;
-  border-radius: 9px;
-}
-.set-password {
-  width: 100%;
-  height: 62px;
-  background-color: white;
-  font-family: "milker";
   font-size: 20px;
+  z-index: 99;
+  max-height: 52px;
+}
+
+.set-password {
+  align-self: flex-end;
+  margin: 10px;
+  width: 100%;
   display: flex;
-  align-items: flex-end;
+}
+
+.input-password {
+  flex-grow: 1;
+  height: 42px;
   border-radius: 9px;
 }
-#send-password-to-server{
-  margin: 0px 10px 10px 0px;
-  width: 52px;
-  height: 42px;
+
+#send-password-to-server {
+  width: 50px;
+  margin-left: 10px;
+  background-color: #08003A;
+  border-radius: 9px;
+  border: none;
+  color: white;
+  font-family: "milker";
+}
+
+#room-id {
+  flex-grow: 1;
+  margin: 10px;
+  border-radius: 9px;
+  border: none;
+}
+
+#room-enter-button {
+  width: 100px;
+  margin: 10px;
+  border-radius: 9px;
+  border: none;
   font-family: "milker";
   background-color: #08003A;
   color: white;
-  border: none;
-  border-radius: 9px;
+  padding-left: 10px;
+  text-align: center;
 }
-.input-password{
-  height: 42px;
-  margin: 10px;
-  flex-grow: 1;
-  border-radius: 9px;
+
+.guide-container {
+  max-width: 1200px;
+  width: 100%;
+  margin: auto;
+  font-family: "Noto Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: lighter;
+  font-variation-settings:
+    "wdth" 100;
+  color: #08003A;
   padding: 10px;
-  font-size: 20px;
+  padding-bottom: 30px;
+}
+
+.guide {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.guide img {
+  margin: 10px;
+  width: 100%;
+  max-width: 300px;
+}
+.support-container{
+  font-family: "Noto Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: normal;
+  font-variation-settings:
+    "wdth" 100;
+  background-color: #08003A;
+  margin: auto;
+  padding: 20px;
+  text-align:justify;
+  color: white;
+}
+.support-container p{
+  margin-bottom: 30px;
+}
+.contain{
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+}
+.os{
+  display: flex;
+  justify-content: space-evenly;
+}
+.os-logo{
+  width: 100%;
+  max-width: 150px;
+  margin: 10px; 
 }
