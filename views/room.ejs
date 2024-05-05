@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NoteHub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/room.css">
+</head>
+
+<body>
+    <div id="main" style="height: 100vh; display: <%= success ? 'flex': 'none' %>;">
+        <div class="filter" style="height: 100vh;"></div>
+        <div style="position: absolute;z-index: 99;">
+            <header>
+                <div class="container">
+                    <div class="head-l">NOTEHUB</div>
+                    <div class="head-r">
+                        <div class="span">home</div>
+                        <div class="span">about us</div>
+                        <div class="span">documentation</div>
+                        <div class="span">contact us</div>
+                    </div>
+                    <svg class="list" xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
+                        class="bi bi-list" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
+                    </svg>
+                </div>
+            </header>
+            <div class="container">
+                <div class="left"></div>
+                <div class="right"></div>
+            </div>
+        </div>
+    </div>
+    <div id="main" style="height: 100vh; display: <%= success ? 'none' : 'flex' %>; justify-content: center; align-items: center;">
+        <!-- <div class="filter" style="height: 100vh;"></div> -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" style="color: red; "
+                class="bi bi-exclamation-triangle" viewBox="0 0 16 16">
+                <path
+                    d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.15.15 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.2.2 0 0 1-.054.06.1.1 0 0 1-.066.017H1.146a.1.1 0 0 1-.066-.017.2.2 0 0 1-.054-.06.18.18 0 0 1 .002-.183L7.884 2.073a.15.15 0 0 1 .054-.057m1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767z" />
+                <path
+                    d="M7.002 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 5.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z" />
+            </svg>
+            <h1 style="font-family: 'milker';margin-left: 20px;color: red;text-shadow: 0px 0px  2px black;">No result found</h1>
+    </div>
+</body>
+
+</html>
