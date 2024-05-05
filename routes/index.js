@@ -11,6 +11,20 @@ const encryptor = require('simple-encryptor')("mother Father Father Mother");
 router.get('/', function (req, res, next) {
   res.render('index', { title: 'Express' });
 });
+router.get('/getinroom/:name',async  function(req, res){
+  const roomName = req.params.name;
+  try{
+    const data = await roomSchema.findOne({ name: roomName }).populate('notes');
+    console.log(data.notes)
+    if (data) {
+      res.render('room', {success: true});
+    } else {
+      throw error("No Room Found");
+    }
+  }catch(error){
+    res.render("room", {success: false});
+  }
+});
 router.post('/createRoom', async function (req, res) {
   const { password, hr } = req.body;
   let isUniqueRoom = false;
